@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class FloorPlan {
 	private SurfaceType[][] floorGrid; // 2D grid of surface types
-	private boolean[][] dirtGrid; // 2D grid to track if tiles are dirty
+	private boolean[][] dirtGrid; // 2D grid to track if tiles are dirty.
 
 	// Constructor: Initializes the floor plan with given dimensions
 	public FloorPlan(int width, int height) {
