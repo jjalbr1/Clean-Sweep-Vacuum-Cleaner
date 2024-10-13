@@ -1,7 +1,7 @@
 public enum Direction {
 	NORTH, SOUTH, EAST, WEST;
 
-	// Moves in the specified direction and returns the new coordinates
+	// Moves in the specified direction and returns the new coordinates.
 	public int[] move(int x, int y) {
 		if (this == NORTH) {
 			return new int[] { x, y - 1 };
