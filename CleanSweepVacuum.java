@@ -5,7 +5,7 @@ public class CleanSweepVacuum {
 	private PowerManagement powerManagement;
 	private FloorPlan floorPlan;
 
-	// Constructor: Initializes the vacuum's starting position, power, and dirt sensor
+	// Constructor: Initializes the vacuum's starting position, power, and dirt sensor.
 	public CleanSweepVacuum(int startX, int startY, FloorPlan floorPlan) {
 		this.currentX = startX;
 		this.currentY = startY;
