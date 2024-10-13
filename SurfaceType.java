@@ -1,1 +1,8 @@
-
+public enum SurfaceType {
+	BARE_FLOOR,
+	LOW_PILE_CARPET,
+	HIGH_PILE_CARPET,
+	OBSTACLE,
+	STAIRS,
+	UNKNOWN
+}
