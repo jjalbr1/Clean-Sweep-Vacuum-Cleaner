@@ -2,7 +2,7 @@ public class PowerManagement {
 	private final int maxBattery;
 	private int battery;
 
-	// Constructor: Sets the initial battery level and max battery capacity
+	// Constructor: Sets the initial battery level and max battery capacity.
 	public PowerManagement(int maxBattery) {
 		this.battery = maxBattery;
 		this.maxBattery = maxBattery;
