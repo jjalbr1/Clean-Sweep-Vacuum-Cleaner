@@ -2,7 +2,7 @@ public class DirtSensor {
 	private FloorPlan floorPlan;
 	private PowerManagement powerManagement;
 
-	// Constructor: Associates the sensor with the floor plan and power management
+	// Constructor: Associates the sensor with the floor plan and power management.
 	public DirtSensor(FloorPlan floorPlan, PowerManagement powerManagement) {
 		this.floorPlan = floorPlan;
 		this.powerManagement = powerManagement;
