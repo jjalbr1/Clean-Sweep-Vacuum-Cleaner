@@ -41,9 +41,16 @@ public class CleanSweepVacuum {
 	public void move(Direction direction) {
 		if (canMove(direction)) {
 			int[] newCoords = direction.move(currentX, currentY);
-			SurfaceType surfaceType = floorPlan.getSurfaceType(newCoords[0], newCoords[1]);
-			int powerUsed = powerManagement.consumePower(surfaceType); // Power consumption depends on surface type
-
+			SurfaceType currentSurfaceType = floorPlan.getSurfaceType(currentX, currentY);
+			SurfaceType nextSurfaceType = floorPlan.getSurfaceType(newCoords[0], newCoords[1]);
+			int powerUsed = 0;
+			
+			if (currentSurfaceType == nextSurfaceType) {
+				powerUsed = powerManagement.consumePower(nextSurfaceType); // Power consumption depends on surface type
+			} else {
+				powerUsed = powerManagement.consumePower(currentSurfaceType, nextSurfaceType); // Power consumption is average of two surfaces
+			}
+			
 			// Update current position
 			this.currentX = newCoords[0];
 			this.currentY = newCoords[1];
