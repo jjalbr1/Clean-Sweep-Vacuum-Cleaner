@@ -29,6 +29,41 @@ public class PowerManagement {
 		return powerConsumed;
 	}
 
+	//overloaded method if surface types are different
+	public int consumePower(SurfaceType currentSurfaceType, SurfaceType nextSurfaceType) {
+		int powerConsumed;
+		int powerConsumedOne;
+		int powerConsumedTwo;
+		
+		if (currentSurfaceType == SurfaceType.BARE_FLOOR) {
+			powerConsumedOne = 1;
+		} else if (currentSurfaceType == SurfaceType.LOW_PILE_CARPET) {
+			powerConsumedOne = 2;
+		} else if (currentSurfaceType == SurfaceType.HIGH_PILE_CARPET) {
+			powerConsumedOne = 3;
+		} else {
+			powerConsumedOne = 1;
+		}
+		
+		if (nextSurfaceType == SurfaceType.BARE_FLOOR) {
+			powerConsumedTwo = 1;
+		} else if (nextSurfaceType == SurfaceType.LOW_PILE_CARPET) {
+			powerConsumedTwo = 2;
+		} else if (nextSurfaceType == SurfaceType.HIGH_PILE_CARPET) {
+			powerConsumedTwo = 3;
+		} else {
+			powerConsumedTwo = 1;
+		}
+		
+		powerConsumed = (powerConsumedOne + powerConsumedTwo) / 2;
+		
+		// Reduce the battery by the power consumed
+		battery -= powerConsumed;
+		System.out.println("Power remaining: " + battery);
+
+		return powerConsumed;
+	}
+
 	// Recharge the battery to full capacity
 	public void recharge() {
 		battery = maxBattery;
