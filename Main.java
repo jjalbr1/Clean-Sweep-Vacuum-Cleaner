@@ -4,16 +4,16 @@ public class Main {
         FloorPlan floorPlan = new FloorPlan(4, 4);
 
         // Load the floor plan from a file (ensure you have the correct file path).
-        floorPlan.loadFromFile("path/to/your/floorplan.csv");
+        //floorPlan.loadFromFile("path/to/your/floorplan.csv");
 
         // Display the loaded floor plan
-        floorPlan.displayFloorPlan();
+        //floorPlan.displayFloorPlan();
 
         // Create the CleanSweepVacuum starting at position (0, 0)
-        CleanSweepVacuum vacuum = new CleanSweepVacuum(0, 0, floorPlan);
+        //CleanSweepVacuum vacuum = new CleanSweepVacuum(0, 0, floorPlan);
 
         // Test moving the vacuum around
-        vacuum.move(Direction.EAST);
-        vacuum.clean(); 
+        //vacuum.move(Direction.EAST);
+        //vacuum.clean(); 
     }
 }
