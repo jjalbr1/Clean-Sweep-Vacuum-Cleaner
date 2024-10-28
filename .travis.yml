@@ -1,0 +1,9 @@
+language: java
+
+jdk:
+  - openjdk11
+
+# Command to run tests
+script: 
+  - javac *.java  # Compile all Java files
+  - java Main      # Run the main entry point for your app
