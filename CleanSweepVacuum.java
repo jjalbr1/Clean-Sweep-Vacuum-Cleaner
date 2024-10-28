@@ -10,7 +10,7 @@ public class CleanSweepVacuum {
 		this.currentX = startX;
 		this.currentY = startY;
 		this.powerManagement = new PowerManagement(250); // Assume 250 is the max battery
-		this.dirtSensor = new DirtSensor(floorPlan, powerManagement); 
+		this.dirtSensor = new DirtSensor(floorPlan, powerManagement, 50); // Assume 50 is the max dirt capacity
 		this.floorPlan = floorPlan;
 	}
 
@@ -59,6 +59,10 @@ public class CleanSweepVacuum {
 		} else {
 			System.out.println("Obstacle or stairs detected. Cannot move " + direction);
 		}
+
+		if (powerManagement.getBatteryLevel() == 0) {
+			powerManagement.recharge();
+		}
 	}
 
 	// Clean the current tile, if dirty, and consume power for cleaning
@@ -67,13 +71,25 @@ public class CleanSweepVacuum {
 		if (dirtSensor.isDirty(currentX, currentY)) {
 			dirtSensor.cleanTile(currentX, currentY); // Clean the tile
 			powerManagement.consumePower(surfaceType); // Power used during cleaning
+			dirtSensor.consumeDirt(surfaceType); // Dirt capacity increases
 		} else {
 			System.out.println("No dirt detected at: (" + currentX + ", " + currentY + ")");
+		}
+		if (powerManagement.getBatteryLevel() == 0) {
+			recharge();
+		}
+		if (dirtSensor.getDirtCapacity() == 0) {
+			emptyDirt();
 		}
 	}
 
 	// Recharge the vacuum's battery to full capacity
 	public void recharge() {
 		powerManagement.recharge();
+	}
+
+	// Restore vacuum's dirt carrying capacity to full
+	public void emptyDirt() {
+		dirtSensor.emptyDirt();
 	}
 }
