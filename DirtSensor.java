@@ -23,7 +23,7 @@ public class DirtSensor {
 		consumeDirt(surfaceType);
 	}
 
-	public void consumeDirt(surfaceType surfaceType) {
+	public void consumeDirt(SurfaceType surfaceType) {
 		dirtCapacity -= 1;
 		System.out.println("Capacity remaining: " + dirtCapacity);
 	}
