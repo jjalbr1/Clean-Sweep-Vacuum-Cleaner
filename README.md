@@ -2,18 +2,19 @@
 # Clean Sweep Vacuum Cleaner Project
 
 ## Overview
-This project simulates a Clean Sweep vacuum cleaner that moves around a floor plan, detects dirt, cleans tiles, and consumes power based on the surface type. The floor plan is read from a CSV file, stored in memory, and displayed in the console.
+This project simulates a robotic vacuum cleaner called Clean Sweep. It can move around a floor plan, detect dirt, clean tiles, and use power based on the type of surface it's on. The floor plan is loaded from a CSV file and shown in the console.
 
 ## Features
-- **Load Floor Plan from CSV:** The floor plan is read from a CSV file where each tile is a different surface type (Bare Floor, Low-Pile Carpet, High-Pile Carpet, Obstacle).
-- **Movement and Obstacle Detection:** The vacuum moves in four directions (North, South, East, West) and detects obstacles and stairs to avoid collisions.
-- **Dirt Detection and Cleaning:** The vacuum detects if a tile is dirty and cleans it, consuming power based on the surface type.
-- **Power Management:** The vacuum consumes power when it moves or cleans. It can be recharged when needed.
-- **Display Floor Plan:** The floor plan is displayed in the console after loading, showing the surface types for each tile.
+- **Load Floor Plan from CSV:** Reads a floor plan from a CSV file, where each tile has a surface type like Bare Floor, Low-Pile Carpet, High-Pile Carpet, or Obstacle.
+- **Movement and Obstacle Detection:** The vacuum moves in four directions (North, South, East, West) and avoids obstacles and stairs.
+- **Dirt Detection and Cleaning:** The vacuum checks if a tile is dirty, cleans it, and uses power based on the surface type.
+- **Power Management:** Tracks power usage for moving and cleaning. The vacuum recharges when it runs low.
+- **Activity Logging:** Logs every action, including movements, cleaning, and power usage, and saves these logs for troubleshooting.
+- **Display Floor Plan:** Shows the floor plan in the console with surface types for each tile.
 
 ## Requirements
 - Java 8 or higher
-- A CSV file representing the floor plan. Example content:
+- A CSV file that describes the floor plan, like this:
   ```
   B,L,H,O
   B,B,L,O
@@ -27,54 +28,56 @@ This project simulates a Clean Sweep vacuum cleaner that moves around a floor pl
   - `O` = Obstacle
 
 ## How to Run
-1. Clone the repository to your local machine:
+1. Clone the project:
    ```bash
    git clone <repository-url>
    ```
 
-2. Navigate to the project directory:
+2. Go to the project folder:
    ```bash
    cd <project-directory>
    ```
 
-3. Compile the project using your preferred Java IDE or directly via the command line:
+3. Compile the project:
    ```bash
    javac Main.java
    ```
 
-4. Run the `Main` class:
+4. Run the program:
    ```bash
    java Main
    ```
 
-5. Ensure the CSV file (e.g., `floorplan.csv`) is in the correct path, and modify the file path in `Main.java` as needed.
+5. Make sure the CSV file (e.g., `floorplan.csv`) is in the right place, and update the file path in `Main.java` if needed.
 
-## Project Structure
+## Project Files
 
 - **CleanSweepVacuum.java**  
-  Handles the vacuum's movement, cleaning, and interaction with the floor plan. 
+  Manages the vacuum’s movement, cleaning, power usage, and logging.
+
+- **ActivityLogger.java**  
+  Tracks and saves the vacuum’s actions for troubleshooting.
 
 - **FloorPlan.java**  
-  Loads the floor plan from a CSV file, stores the grid of surface types, and provides methods to interact with the floor plan. Also includes a method to display the grid in the console.
+  Loads the floor plan from a CSV file, tracks obstacles, and surface types.
 
 - **DirtSensor.java**  
-  Detects if a tile is dirty and handles the cleaning process.
+  Detects dirt and manages cleaning.
 
 - **PowerManagement.java**  
-  Manages the vacuum's battery power, tracking consumption based on surface types, and provides a recharge method.
+  Tracks and recharges battery power based on movement and cleaning.
 
 - **SurfaceSensor.java**  
-  Stub class that can be expanded for detecting different surface types.
+  Detects the type of surface under the vacuum.
 
 - **SurfaceType.java**  
-  Enum defining the different types of surfaces on the floor (e.g., Bare Floor, Low-Pile Carpet, High-Pile Carpet, Obstacle, etc.).
+  Lists types of surfaces (e.g., Bare Floor, Carpet, Obstacle).
 
 - **Direction.java**  
-  Enum that defines the four movement directions (North, South, East, West) and handles coordinate changes based on direction.
+  Lists four directions (North, South, East, West) and moves coordinates accordingly.
 
 - **Main.java**  
-  Entry point to the program, loads the floor plan, initializes the vacuum, and demonstrates basic movement and cleaning functionality.
-
+  Runs the program, loads the floor plan, and starts the vacuum.
 
 ## Authors
-- SE 459  Group 1
+- SE 459 Group 1
