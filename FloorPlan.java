@@ -93,3 +93,4 @@ public class FloorPlan {
 		dirtGrid[x][y] = false;
 	}
 }
+ 
