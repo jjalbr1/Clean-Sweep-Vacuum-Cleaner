@@ -59,7 +59,7 @@ public class PowerManagement {
 		
 		// Reduce the battery by the power consumed
 		battery -= powerConsumed;
-		System.out.println("Power remaining: " + battery);
+		System.out.println("Power consumed: " + powerConsumed + ", remaining power: " + battery);
 
 		return powerConsumed;
 	}
